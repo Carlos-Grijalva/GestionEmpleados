@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { router } from "@inertiajs/vue3";
+import { router, Link } from "@inertiajs/vue3";
 import Alerta from "@/Components/Alerta.vue";
 import MiModal from "@/Components/MiModal.vue";
 
@@ -125,8 +125,13 @@ const enviarFormulario = () => {
                 <span class="text-sm text-red-500">{{ errors.email ?? '' }}</span>
             </div> -->
 
-            <MiModal nombre="Guardar" cuerpo="Desea guardar este registro?" titulo="Advertencia"
+            <div class="flex align-middle justify-between">
+                <Link href="/empleados" as="button">Volver</Link>
+
+                <MiModal nombre="Guardar" cuerpo="Desea guardar este registro?" titulo="Advertencia"
                 :accion="enviarFormulario" />
+            </div>
+
         </form>
     </div>
 </template>
